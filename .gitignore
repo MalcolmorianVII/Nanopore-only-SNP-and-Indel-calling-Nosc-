@@ -1,3 +1,5 @@
+#Ignore ref_genomes
+reference_genomes/
 #Any directory not script
 results/
 # Byte-compiled / optimized / DLL files
