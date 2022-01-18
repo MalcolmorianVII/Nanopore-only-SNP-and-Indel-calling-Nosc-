@@ -1,3 +1,7 @@
+#Ignore these ones
+.DS_Store
+scripts/refseeking.sh
+scripts/to_delete.py
 #Ignore ref_genomes
 reference_genomes/
 #Any directory not script
