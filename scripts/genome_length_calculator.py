@@ -16,19 +16,6 @@ def run_calculate_alternative(data_list):
 			length += len(line.strip())
 	return length
 
-# def calculator(data_list):
-# 	length = 0
-# 	try:
-# 		assert data_list[0].__contains__('chromosome'),"does not start with chromosome"
-# 		for line in data_list[1:]:
-# 			if line.__contains__('plasmid'):
-# 				print('Reached a plasmid! Stopping genome length calculation')
-# 				break
-# 			length += len(line.strip())
-# 	except AssertionError as e:
-# 		run_calculate_alternative(data_list)
-# 	return length
-
 
 def read_file(file_path):
 	with open(file_path,'r') as f:
@@ -47,7 +34,6 @@ def calc_gen_length(file):
 
 
 def runner(path):
-	# files = os.listdir(path)
 	files = glob.glob(f'{path}/*.fna')
 	outfile = f'{path}/genome_lengths.txt'
 	if os.path.exists(outfile):
@@ -60,7 +46,7 @@ def runner(path):
 		print(f'Writing genome length of {file}')
 		write_genome_length(length,species,outfile)
 
-ref='/home/ubuntu/data/belson/guppy5_guppy3_comparison/reference_genomes'
+ref='/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/reference_genomes'
 if __name__ == '__main__':
 	runner(ref)
 	print('Finished writing the genome lengths of all species')
