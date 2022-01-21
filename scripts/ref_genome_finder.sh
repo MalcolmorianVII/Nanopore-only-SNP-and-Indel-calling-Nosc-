@@ -3,8 +3,8 @@ eval "$(conda shell.bash hook)"
 conda activate "snakemake"
 
 db_path='/home/ubuntu/data/belson/bacteria-refseq/'
-samples='/home/ubuntu/data/belson/Guppy5_guppy3_comparison/napa/results/2021.08.02/guppy3'
-ref_genomes=/home/ubuntu/data/belson/Guppy5_guppy3_comparison/nosc_clair/results/Refseeker/${name}Refseeker.txt
+samples='/home/ubuntu/data/belson/bioinformatics/projects_2021/napa/results/2021.08.02/guppy3'
+ref_genomes=/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/results/Refseeker/${name}Refseeker.txt
 for sample in $samples/*
 do
 	name=`basename $sample`
