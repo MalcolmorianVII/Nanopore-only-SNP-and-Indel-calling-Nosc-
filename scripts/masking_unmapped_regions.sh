@@ -1,7 +1,7 @@
 #! /usr/bin/bash
 
-ref=/home/ubuntu/data/belson/guppy5_guppy3_comparison/reference_genomes/Acinetobacter_baumannii.fna
-res=/home/ubuntu/data/belson/guppy5_guppy3_comparison/nosc/nosc_gatk/results/2021.11.25
+ref=/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/reference_genomes/Acinetobacter_baumannii.fna
+res=/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/results/nosc_gatk/2022.01.05
 reads=/home/ubuntu/data/belson/illumina_reads/Acinetobacter_baumannii_J9
 
 bwa mem ${ref}  ${reads}/J9_S142_L001_R1_001.fastq.gz ${reads}/J9_S142_L001_R2_001.fastq.gz > ${res}/Acinetobacter_bwa-mem_original-mapped.sam
