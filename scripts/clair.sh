@@ -5,10 +5,10 @@ eval "$(conda shell.bash hook)"
 conda activate "snakemake"
 
 species=(barcode01_Acinetobacter_baumannii_J9 barcode02_Citrobacter_koseri_MINF_9D barcode03_Enterobacter_kobei_MSB1_1B barcode04_Haemophilus_unknown_M1C132_1 barcode05_Klebsiella_oxytoca_MSB1_2C barcode06_CHF10J1 barcode07_Klebsiella_variicola_INF345 barcode08_Serratia_marcescens_17-147-1671)
-BASE=/home/ubuntu/data/belson/guppy5_guppy3_comparison/nosc/nosc_clair/results/2022.01.02
+BASE=/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/results/nosc_clair/2022.01.02
 model=/home/belson/Clair3/models/ont_guppy5
-ref=/home/ubuntu/data/belson/guppy5_guppy3_comparison/reference_genomes
-claired=/home/ubuntu/data/belson/guppy5_guppy3_comparison/nosc/nosc_clair/results/2022.01.02
+ref=/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/reference_genomes
+claired=/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/results/nosc_clair/2022.01.02
 THREADS="8" 
 MODEL_NAME="ont_guppy5"
 sort_index() {
@@ -17,7 +17,7 @@ sort_index() {
 }
 
 minimap() {
-	g5=/home/ubuntu/data/belson/guppy5_guppy3_comparison/input_data/guppy_5
+	g5=/home/ubuntu/data/belson/bioinformatics/projects_2021/napa/input_data/guppy_5
 	for i in ${species[@]}
 	do	
 	#Map the nanopore reads to the ref genome
@@ -45,9 +45,9 @@ faidx() {
 	samtools faidx $1/$2	#Somehow giving an error of not finding fai file for consensus.fasta
 }
 
-echo "<<<<STARTING WITH ALL ABOUT MAPPINGS I.E. MINIMAPING,SORTING & INDEXING>>>>"
+echo "<<<< STARTING WITH ALL ABOUT MAPPINGS I.E. MINIMAPING,SORTING & INDEXING >>>>"
 minimap
-echo "<<<<STARTED Clair3>>>>"
+echo "<<<< STARTED Clair3 >>>>"
 conda deactivate
 for dir in ${claired}/barcode*
 do
