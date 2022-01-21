@@ -1,8 +1,8 @@
 #! /usr/bin/bash
 species=(barcode01_Acinetobacter_baumannii_J9 barcode02_Citrobacter_koseri_MINF_9D barcode03_Enterobacter_kobei_MSB1_1B barcode04_Haemophilus_unknown_M1C132_1 barcode05_Klebsiella_oxytoca_MSB1_2C barcode06_CHF10J1 barcode07_Klebsiella_variicola_INF345 barcode08_Serratia_marcescens_17-147-1671)
-ref=/home/ubuntu/data/belson/guppy5_guppy3_comparison/reference_genomes
-BASE="/home/ubuntu/data/belson/guppy5_guppy3_comparison/nosc/nosc_pepper/results/2022.01.02"
-mapped=/home/ubuntu/data/belson/guppy5_guppy3_comparison/nosc/nosc_pepper/results/2022.01.02
+ref=/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/reference_genomes
+BASE="/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/results/nosc_pepper/2022.01.02"
+mapped=/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/results/nosc_pepper/2022.01.02
 # Set the number of CPUs to use
 THREADS="8"
 
@@ -12,7 +12,7 @@ sort_index() {
 }
 
 minimap() {
-	g5=/home/ubuntu/data/belson/guppy5_guppy3_comparison/input_data/guppy_5
+	g5=/home/ubuntu/data/belson/bioinformatics/projects_2021/napa/input_data/guppy_5
 	for i in ${species[@]}
 	do	
 	#Map the nanopore reads to the ref genome
