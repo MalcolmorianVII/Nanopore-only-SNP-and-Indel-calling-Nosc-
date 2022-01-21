@@ -2,9 +2,9 @@
 set -e
 eval "$(conda shell.bash hook)"
 conda activate "gatk"
-reads=/home/ubuntu/data/belson/guppy5_guppy3_comparison/input_data/clean_illumina_reads
-out=/home/ubuntu/data/belson/guppy5_guppy3_comparison/nosc/nosc_gatk/results/2022.01.05
-refs=/home/ubuntu/data/belson/guppy5_guppy3_comparison/reference_genomes
+reads=/home/ubuntu/data/belson/bioinformatics/projects_2021/napa/input_data/clean_illumina_reads
+out=/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/results/nosc_gatk/2022.01.05
+refs=/home/ubuntu/data/belson/bioinformatics/projects_2021/nosc/reference_genomes
 species=(barcode01_Acinetobacter_baumannii_J9
  barcode02_Citrobacter_koseri_MINF_9D 
  barcode03_Enterobacter_kobei_MSB1_1B 
