@@ -21,9 +21,9 @@ do
     out_dir=${out}/${sp}_uniquely_mapped
     BAM=${out_dir}/${sp}.bam
     unique_bam=${out_dir}/${sp}_unique.bam
-    less5X_mapped=${out_dir}/${sp}_less5xcoverage.txt
+    more5X_mapped=${out_dir}/${sp}_more5xcoverage.txt
     SAM=${out_dir}/${sp}.sam
-    less5_bed=${out_dir}/${sp}_less5x.bed
+    more5_bed=${out_dir}/${sp}_more5x.bed
     ref_genome=${refs}/${sp}_ref.fna
     if [ "$base" = 'CHF10J1' ]
     then
@@ -55,11 +55,11 @@ do
         echo "STARTED UNIQUE MAPPING"
         samtools view -h "${BAM}" | grep -v -e 'XA:Z:' -e 'SA:Z:' | samtools view -b > "${unique_bam}"
           
-        echo "Generating less < 5x coverage depth"
-        samtools depth -aa "${unique_bam}" | awk '{if ($3 < 5) print $0}' > "${less5X_mapped}"
+        echo "Generating more > 5x coverage depth"
+        samtools depth -aa "${unique_bam}" | awk '{if ($3 > 5) print $0}' > "${more5X_mapped}"
 
         echo "Filtering the less < 5x coverage depth"
-        cut -f 1 "${less5X_mapped}" | sort| uniq | while read X; do awk -v X="$X" '($1==X) { printf("%s\t%d\t%d\n",$1,$2,int($2)+1);}' "${less5X_mapped}" | sort -k1,1 -k2,2n | ~/bedtools merge -i - | sed "s/\$/\t${X}/" ; done | cut -f 1,2,3 > "${less5_bed}"
+        cut -f 1 "${more5X_mapped}" | sort| uniq | while read X; do awk -v X="$X" '($1==X) { printf("%s\t%d\t%d\n",$1,$2,int($2)+1);}' "${more5X_mapped}" | sort -k1,1 -k2,2n | ~/bedtools merge -i - | sed "s/\$/\t${X}/" ; done | cut -f 1,2,3 > "${more5_bed}"
 
         touch "${out_dir}"/success.txt
     fi
